@@ -66,7 +66,7 @@ app.get("/products", async (req, res) => {
         // console.log(data)
         return res.json({
             message: "fetched data",
-            item:data.Items
+            items:data.Items
         })
     } catch (err) {
         res.status(500).json({ error: err.message });
