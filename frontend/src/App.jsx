@@ -6,7 +6,8 @@ const backend = import.meta.env.VITE_BACKEND_URL;
 export default function App() {
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState({ ProductId: "", Name: "", ExpiryInMin: "" });
-
+  const now = Math.floor(Date.now() / 1000);
+  
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -14,7 +15,8 @@ export default function App() {
   const fetchProducts = async () => {
     try {
       const res = await axios.get(`${backend}/products`);
-      setProducts(res.data.items || []);
+      const validItems = res.data.items.filter((item) => item.ExpiryDate > now);
+      setProducts(validItems || []);
     } catch (err) {
       console.error("Error fetching products:", err.message);
     }
