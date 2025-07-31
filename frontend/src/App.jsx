@@ -41,7 +41,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen w-full p-6 bg-gray-100 text-gray-900">
+    <div className="min-h-screen w-full mx-auto p-6 bg-gray-100 text-gray-900">
       <h1 className="text-2xl font-bold mb-4">Inventory Manager</h1>
 
       <div className="bg-white p-4 rounded shadow mb-6">
